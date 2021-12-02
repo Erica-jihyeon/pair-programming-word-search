@@ -2,12 +2,22 @@ const wordSearch = (letters, word) => {
     const horizontalJoin = letters.map(ls => ls.join(''));
     const verticalJoin = matrixTranspose(letters).map(ls => ls.join(''));
 
+    const horizonReverse = letters.map(ls => ls.reverse().join(''));
+    const verticalReverse = matrixTranspose(letters).map(ls => ls.reverse().join(''));
+
     for (l of horizontalJoin) {
         if (l.includes(word)) return true
     }
     for (l of verticalJoin) {
         if (l.includes(word)) return true
     }
+    for (l of horizonReverse) {
+        if (l.includes(word)) return true
+    }
+    for (l of verticalReverse) {
+        if (l.includes(word)) return true
+    }
+
     return false
 }
 
